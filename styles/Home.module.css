@@ -1,3 +1,5 @@
+/** Mobile first development **/
+
 .container {
   margin-bottom: 14rem /* 224px */;
 }
@@ -108,29 +110,4 @@
   .cardLayout {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-}
-
-.sectionWrapper {
-  margin-top: 5rem;
-}
-
-/** Breakpoints:
-  sm: min-width: 640px;
-  md: min-width: 768px;
-  lg: min-width: 1024px;
-  xl: min-width: 1280px;
-  2xl: min-width: 1536px;
-**/
-
-@media (min-width: 640px) {
-  .container {
-    padding-left: 1rem /* 16px */;
-    padding-right: 1rem /* 16px */;
-  }
-}
-
-.main {
-  margin-top: 3rem /* 48px */;
-  padding-left: 1.5rem /* 24px */;
-  padding-right: 1.5rem /* 24px */;
 }
