@@ -70,43 +70,43 @@ const CoffeeStore = (props) => {
             alt={name}
           ></Image>
         </div>
-      </div>
 
-      <div className={cls("glass", styles.col2)}>
-        <div className={styles.iconWrapper}>
-          <Image
-            src="/static/icons/places.svg"
-            width="24"
-            height="24"
-            alt="places icon"
-          />
-          <p className={styles.text}>{address}</p>
-
+        <div className={cls("glass", styles.col2)}>
           <div className={styles.iconWrapper}>
             <Image
-              src="/static/icons/nearMe.svg"
+              src="/static/icons/places.svg"
               width="24"
               height="24"
               alt="places icon"
             />
-            <p className={styles.text}>{neighbourhood}</p>
+            <p className={styles.text}>{address}</p>
 
             <div className={styles.iconWrapper}>
               <Image
-                src="/static/icons/star.svg"
+                src="/static/icons/nearMe.svg"
                 width="24"
                 height="24"
                 alt="places icon"
               />
-              <p className={styles.text}>1</p>
-            </div>
+              <p className={styles.text}>{neighbourhood}</p>
 
-            <button
-              className={styles.upVoteButton}
-              onClick={handleUpvoteButton}
-            >
-              Up Vote !
-            </button>
+              <div className={styles.iconWrapper}>
+                <Image
+                  src="/static/icons/star.svg"
+                  width="24"
+                  height="24"
+                  alt="places icon"
+                />
+                <p className={styles.text}>1</p>
+              </div>
+
+              <button
+                className={styles.upVoteButton}
+                onClick={handleUpvoteButton}
+              >
+                Up Vote !
+              </button>
+            </div>
           </div>
         </div>
       </div>
