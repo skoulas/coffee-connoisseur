@@ -9,7 +9,7 @@ import Card from "./components/Card";
 
 export async function getStaticProps(context) {
   const response = await fetch(
-    "https://api.foursquare.com/v3/places/nearby?ll=37.98116798198261%2C23.768529639971096&query=coffee-stores",
+    "https://api.foursquare.com/v3/places/nearby?ll=37.98116798198261%2C23.768529639971096&query=coffee-stores&limit=6",
     {
       headers: {
         Authorization: "fsq3h3Q+yGwsBZMsbBDI+bVkHGTGk5zUmbnb1ETXRvpezS0=",
@@ -21,7 +21,7 @@ export async function getStaticProps(context) {
 
   return {
     props: {
-      coffeeStores: data,
+      coffeeStores: data.results,
     },
   };
 }
