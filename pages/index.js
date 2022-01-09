@@ -5,12 +5,23 @@ import styles from "../styles/Home.module.css";
 import Banner from "./components/banner";
 import Card from "./components/Card";
 
-import coffeeStoresData from "../data/coffee-stores.json";
+// import coffeeStoresData from "../data/coffee-stores.json";
 
 export async function getStaticProps(context) {
+  const response = await fetch(
+    "https://api.foursquare.com/v3/places/nearby?ll=37.98116798198261%2C23.768529639971096&query=coffee-stores",
+    {
+      headers: {
+        Authorization: "fsq3h3Q+yGwsBZMsbBDI+bVkHGTGk5zUmbnb1ETXRvpezS0=",
+      },
+    }
+  );
+  const data = await response.json();
+  console.log(data);
+
   return {
     props: {
-      coffeeStores: coffeeStoresData,
+      coffeeStores: data,
     },
   };
 }
