@@ -7,8 +7,6 @@ import styles from "../styles/Home.module.css";
 import Banner from "./components/banner";
 import Card from "./components/Card";
 
-// import coffeeStoresData from "../data/coffee-stores.json";
-
 export async function getStaticProps(context) {
   const coffeeStores = await fetchCoffeeStores();
 
