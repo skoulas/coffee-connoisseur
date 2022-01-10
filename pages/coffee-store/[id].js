@@ -43,7 +43,7 @@ const CoffeeStore = (props) => {
   if (router.isFallback) {
     return <div>Loading... </div>;
   }
-  const { address, name, neighbourhood, imgUrl } = props.coffeeStore;
+  const { location, name, neighborhood, imgUrl } = props.coffeeStore;
 
   const handleUpvoteButton = () => {
     console.log("handle  upvote");
@@ -85,34 +85,35 @@ const CoffeeStore = (props) => {
               height="24"
               alt="places icon"
             />
-            <p className={styles.text}>{address}</p>
+            <p className={styles.text}>{location.address}</p>
 
-            <div className={styles.iconWrapper}>
-              <Image
-                src="/static/icons/nearMe.svg"
-                width="24"
-                height="24"
-                alt="places icon"
-              />
-              <p className={styles.text}>{neighbourhood}</p>
-
+            {location.neighborhood && (
               <div className={styles.iconWrapper}>
                 <Image
-                  src="/static/icons/star.svg"
+                  src="/static/icons/nearMe.svg"
                   width="24"
                   height="24"
                   alt="places icon"
                 />
-                <p className={styles.text}>1</p>
+                <p className={styles.text}>{location.neighborhood}</p>
               </div>
-
-              <button
-                className={styles.upVoteButton}
-                onClick={handleUpvoteButton}
-              >
-                Up Vote !
-              </button>
+            )}
+            <div className={styles.iconWrapper}>
+              <Image
+                src="/static/icons/star.svg"
+                width="24"
+                height="24"
+                alt="places icon"
+              />
+              <p className={styles.text}>1</p>
             </div>
+
+            <button
+              className={styles.upVoteButton}
+              onClick={handleUpvoteButton}
+            >
+              Up Vote !
+            </button>
           </div>
         </div>
       </div>
