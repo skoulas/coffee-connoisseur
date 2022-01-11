@@ -79,10 +79,12 @@ const CoffeeStore = (props) => {
             <Image src="/static/icons/places.svg" width="24" height="24" />
             <p className={styles.text}>{address}</p>
           </div>
-          <div className={styles.iconWrapper}>
-            <Image src="/static/icons/nearMe.svg" width="24" height="24" />
-            <p className={styles.text}>{neighbourhood}</p>
-          </div>
+          {neighbourhood && (
+            <div className={styles.iconWrapper}>
+              <Image src="/static/icons/nearMe.svg" width="24" height="24" />
+              <p className={styles.text}>{neighbourhood}</p>
+            </div>
+          )}
           <div className={styles.iconWrapper}>
             <Image src="/static/icons/star.svg" width="24" height="24" />
             <p className={styles.text}>1</p>
