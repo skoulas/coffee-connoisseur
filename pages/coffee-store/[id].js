@@ -5,11 +5,13 @@ import Image from "next/image";
 
 import cls from "classnames";
 
+
 import styles from "../../styles/coffee-store.module.css";
 import { fetchCoffeeStores } from "../../lib/coffee-store";
 // import coffeeStoresData from "../../data/coffee-stores.json";
 
 export async function getStaticProps(staticProps) {
+
   const params = staticProps.params;
   const coffeeStores = await fetchCoffeeStores();
 
@@ -31,6 +33,7 @@ export async function getStaticPaths() {
       },
     };
   });
+
   return {
     paths,
     fallback: true,
@@ -41,27 +44,34 @@ const CoffeeStore = (props) => {
   const router = useRouter();
 
   if (router.isFallback) {
-    return <div>Loading... </div>;
+    return <div>Loading...</div>;
   }
+
   const { address, name, neighbourhood, imgUrl } = props.coffeeStore;
 
-  const handleUpvoteButton = () => {};
+  const handleUpvoteButton = () => {
+    console.log("handle updvote!");
+  };
+
 
   return (
     <div className={styles.layout}>
       <Head>
         <title>{name}</title>
       </Head>
-
       <div className={styles.container}>
         <div className={styles.col1}>
           <div className={styles.backToHomeLink}>
             <Link href="/">
+
               <a> Back to home </a>
+
+              
+
             </Link>
           </div>
           <div className={styles.nameWrapper}>
-            <h1 className={styles.name}> {name}</h1>
+            <h1 className={styles.name}>{name}</h1>
           </div>
           <Image
             src={
@@ -78,6 +88,7 @@ const CoffeeStore = (props) => {
           <div className={styles.iconWrapper}>
             <Image src="/static/icons/places.svg" width="24" height="24" />
             <p className={styles.text}>{address}</p>
+
           </div>
           {neighbourhood && (
             <div className={styles.iconWrapper}>
@@ -89,6 +100,9 @@ const CoffeeStore = (props) => {
             <Image src="/static/icons/star.svg" width="24" height="24" />
             <p className={styles.text}>1</p>
           </div>
+
+       
+
           <button className={styles.upvoteButton} onClick={handleUpvoteButton}>
             Up vote!
           </button>
