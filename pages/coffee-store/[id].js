@@ -43,7 +43,7 @@ const CoffeeStore = (props) => {
   if (router.isFallback) {
     return <div>Loading... </div>;
   }
-  const { address, name, neighborhood, imgUrl } = props.coffeeStore;
+  const { address, name, neighbourhood, imgUrl } = props.coffeeStore;
 
   const handleUpvoteButton = () => {};
 
@@ -74,45 +74,22 @@ const CoffeeStore = (props) => {
             alt={name}
           ></Image>
         </div>
-
         <div className={cls("glass", styles.col2)}>
           <div className={styles.iconWrapper}>
-            <Image
-              src="/static/icons/places.svg"
-              width="24"
-              height="24"
-              alt="places icon"
-            />
+            <Image src="/static/icons/places.svg" width="24" height="24" />
             <p className={styles.text}>{address}</p>
-
-            {neighborhood && (
-              <div className={styles.iconWrapper}>
-                <Image
-                  src="/static/icons/nearMe.svg"
-                  width="24"
-                  height="24"
-                  alt="places icon"
-                />
-                <p className={styles.text}>{neighborhood}</p>
-              </div>
-            )}
-            <div className={styles.iconWrapper}>
-              <Image
-                src="/static/icons/star.svg"
-                width="24"
-                height="24"
-                alt="places icon"
-              />
-              <p className={styles.text}>1</p>
-            </div>
-
-            <button
-              className={styles.upvoteButton}
-              onClick={handleUpvoteButton}
-            >
-              Up Vote !
-            </button>
           </div>
+          <div className={styles.iconWrapper}>
+            <Image src="/static/icons/nearMe.svg" width="24" height="24" />
+            <p className={styles.text}>{neighbourhood}</p>
+          </div>
+          <div className={styles.iconWrapper}>
+            <Image src="/static/icons/star.svg" width="24" height="24" />
+            <p className={styles.text}>1</p>
+          </div>
+          <button className={styles.upvoteButton} onClick={handleUpvoteButton}>
+            Up vote!
+          </button>
         </div>
       </div>
     </div>
