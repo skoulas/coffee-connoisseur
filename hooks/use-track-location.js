@@ -8,11 +8,11 @@ const useTrackLocation = () => {
   const success = (position) => {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
-    setlatLong(`${latLong},${longitude}`);
+    setlatLong(`${latitude},${longitude}`);
     setLocationErrorMsg("");
     setIsFindingLocation(false);
   };
-  const error = () => {
+  const error = (error) => {
     setIsFindingLocation(false);
     setLocationErrorMsg("Unable to retrieve your location");
   };

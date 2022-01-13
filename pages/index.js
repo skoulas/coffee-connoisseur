@@ -1,7 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Head from "next/head";
 import Image from "next/image";
 import { fetchCoffeeStores } from "../lib/coffee-store";
 import useTrackLocation from "../hooks/use-track-location";
+import { useEffect } from "react";
 
 import styles from "../styles/Home.module.css";
 
@@ -23,6 +25,18 @@ export default function Home(props) {
     useTrackLocation();
 
   console.log({ latLong, locationErrorMsg });
+
+  useEffect(async () => {
+    if (latLong) {
+      try {
+        const fetchedCoffeeStores = await fetchCoffeeStores(latLong, 30);
+        console.log({ fetchedCoffeeStores });
+      } catch (error) {
+        //error
+        console.log(error);
+      }
+    }
+  }, [latLong]);
 
   const handleOnBannerBtnClick = () => {
     console.log("hi banner button");
