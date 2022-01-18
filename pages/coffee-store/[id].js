@@ -9,7 +9,7 @@ import cls from "classnames";
 
 import styles from "../../styles/coffee-store.module.css";
 import { fetchCoffeeStores } from "../../lib/coffee-store";
-import { StoreContext } from "../_app";
+import { StoreContext } from "../../store/store-context";
 // import coffeeStoresData from "../../data/coffee-stores.json";
 
 import { isEmpty } from "../../utils";
